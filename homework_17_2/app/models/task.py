@@ -1,9 +1,10 @@
 from sqlalchemy import Column, Integer, String, Boolean, ForeignKey
 from sqlalchemy.orm import relationship
 from homework_17_2.app.backend.db import Base
+from homework_17_2.app.models.user import User
 class Task(Base):
     __tablename__ = 'tasks'
-
+    __table_args__ = {'keep_existing': True}
 
     id = Column(Integer, primary_key=True, index=True)
     title = Column(String)
@@ -15,5 +16,6 @@ class Task(Base):
 
     user = relationship('User', back_populates='tasks')
 
-
+from sqlalchemy.schema import CreateTable
+print(CreateTable(Task.__table__))
 
