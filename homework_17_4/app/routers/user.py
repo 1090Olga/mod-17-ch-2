@@ -28,7 +28,8 @@ async def create_user(db: Annotated[Session, Depends(get_db)], create_user_: Cre
     db.execute(insert(User).values(username=create_user_.username,
                                    firstname=create_user_.firstname,
                                    lastname=create_user_.lastname,
-                                   age=slugify(create_user_.username)))
+                                   age=create_user_.age,
+                                   slug=slugify(create_user_.username)))
     db.commit()
     return {'status_code': status.HTTP_201_CREATED,
             'transaction': "Successful"}
