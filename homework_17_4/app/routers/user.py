@@ -24,7 +24,7 @@ async def user_by_id(db: Annotated[Session, Depends(get_db)],user_id: int):
 async def create_user(db: Annotated[Session, Depends(get_db)], create_user_: CreateUser):
     user_ = db.scalar(select(User).where(User.username == create_user_.username))
     if user_ is not None:
-        raise HTTPException(status_code=400, detail='User already exists')
+        raise HTTPException(status_code=404, detail='User already exists')
     db.execute(insert(User).values(username=create_user_.username,
                                    firstname=create_user_.firstname,
                                    lastname=create_user_.lastname,
