@@ -1,13 +1,11 @@
-import queue
 import time
+import queue
 from threading import Thread, Lock
-
 
 class Table:
     def __init__(self, number):
         self.number = number
         self.is_busy = False
-
 
 class Customer(Thread):
     def __init__(self, number, table, cafe):
@@ -22,7 +20,6 @@ class Customer(Thread):
             print(f'Посетитель номер {self.number} покушал за столиком и ушёл.')
             self.table.is_busy = False
             self.cafe.check_queue()
-
 
 class Cafe:
     def __init__(self, tables):
@@ -61,7 +58,6 @@ class Cafe:
                 if not table.is_busy:
                     self.seat_customer(next_customer, table)
                     break
-
 
 tables_list = [Table(1), Table(2), Table(3)]
 cafe = Cafe(tables_list)
