@@ -1,0 +1,22 @@
+{% extends "ECO/base.html"%}
+{% load static %}
+
+
+{%block css%}
+    <link rel="stylesheet" href="{% static 'deps/css/my_footer_css.css' %}">
+{% endblock %}
+
+
+{% block content %}
+    <h1 class="mt-5 pt-5"><strong> ECOSIST </strong></h1>
+    <h8>{{ content }}</h8>
+{% endblock %}
+
+
+{% block footer %}
+    <footer class="py-4 bg-grey">
+        <div class="container">
+            <p class="m-0 text-center text-white"> URBAN UNIVERSITY &copy; ФЕДОСЕЕВА ОЛЬГА  2024</p>
+        </div>
+    </footer>
+{% endblock %}
