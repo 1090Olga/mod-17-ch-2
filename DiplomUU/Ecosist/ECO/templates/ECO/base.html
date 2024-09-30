@@ -88,13 +88,13 @@
                             height="16">
                     </button>
                     <ul class="dropdown-menu bg-dark" data-bs-theme="dark">
-                        <li><a class="dropdown-item text-white" href="goods/catalog.html">Все товары</a></li>
-                        <li><a class="dropdown-item text-white" href="goods/catalog.html">Панно</a></li>
-                        <li><a class="dropdown-item text-white" href="goods/catalog.html">Деревья</a></li>
-                        <li><a class="dropdown-item text-white" href="goods/catalog.html">Мох</a></li>
-                        <li><a class="dropdown-item text-white" href="goods/catalog.html">Искусственные растения</a></li>
-                        <li><a class="dropdown-item text-white" href="goods/catalog.html">Фитостены</a></li>
-                        <li><a class="dropdown-item text-white" href="goods/catalog.html">Декор</a></li>
+                        <li><a class="dropdown-item text-white" href="{% url 'catalog:index' %}">Все товары</a></li>
+                        <li><a class="dropdown-item text-white" href="{% url 'catalog:index' %}">Панно</a></li>
+                        <li><a class="dropdown-item text-white" href="{% url 'catalog:index' %}">Деревья</a></li>
+                        <li><a class="dropdown-item text-white" href="{% url 'catalog:index' %}">Мох</a></li>
+                        <li><a class="dropdown-item text-white" href="{% url 'catalog:index' %}">Искусственные растения</a></li>
+                        <li><a class="dropdown-item text-white" href="{% url 'catalog:index' %}">Фитостены</a></li>
+                        <li><a class="dropdown-item text-white" href="{% url 'catalog:index' %}">Декор</a></li>
                     </ul>
                 </div>
                 <!-- Значек корзины, вызывает модальное окно -->
