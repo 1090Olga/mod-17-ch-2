@@ -59,7 +59,7 @@
                                 <li><a class="dropdown-item  text-white" href="carts/cart.html">Корзина</a></li>
                                 <li><a class="dropdown-item  text-white" href="users/profile.html">Личный кабинет</a>
                                 </li>
-                                <li><a class="dropdown-item  text-white" href="#">Админ панель</a></li>
+                                <li><a class="dropdown-item  text-white" href="{% url 'admin:index'%}">Админ панель</a></li>
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
@@ -88,13 +88,10 @@
                             height="16">
                     </button>
                     <ul class="dropdown-menu bg-dark" data-bs-theme="dark">
-                        <li><a class="dropdown-item text-white" href="{% url 'catalog:index' %}">Все товары</a></li>
-                        <li><a class="dropdown-item text-white" href="{% url 'catalog:index' %}">Панно</a></li>
-                        <li><a class="dropdown-item text-white" href="{% url 'catalog:index' %}">Деревья</a></li>
-                        <li><a class="dropdown-item text-white" href="{% url 'catalog:index' %}">Мох</a></li>
-                        <li><a class="dropdown-item text-white" href="{% url 'catalog:index' %}">Искусственные растения</a></li>
-                        <li><a class="dropdown-item text-white" href="{% url 'catalog:index' %}">Фитостены</a></li>
-                        <li><a class="dropdown-item text-white" href="{% url 'catalog:index' %}">Декор</a></li>
+                        {% for caterory in categories%}
+                            <li><a class="dropdown-item text-white" href="{% url 'catalog:index' %}">{{ category.name }}</a></li>
+                        {% endfor%}
+
                     </ul>
                 </div>
                 <!-- Значек корзины, вызывает модальное окно -->
@@ -186,7 +183,7 @@
         </div>
     </section>
 
-    {% block footer %}{% endblock %}
+    {% block footer %} {% endblock %}
 
     <script src="{% static 'deps/js/jquery/jquery-3.7.0.min.js'%}"></script>
     <script src="{% static 'deps/js/jquery-events.js' %}"></script>
