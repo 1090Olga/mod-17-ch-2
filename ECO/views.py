@@ -1,15 +1,14 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from  goods.models import Categories
+from goods.models import Categories
 
 # Create your views here.o0
 def index(request):
-
-
-
+    categories = Categories.objects.all()
     context: dict[str, str] = {
         'title': 'ECOSIST- Главная',
         'content': 'ОЗЕЛЕНЕНИЕ БЕЗ УХОДА',
+        'categories': categories,
     }
     return render(request, "ECO/index.html", context)
 
