@@ -22,5 +22,5 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('ECO.urls', 'ECO')),
-    path('catalog/', include('goods.urls', 'catalog')),
+    path('catalog/', include('goods.urls', 'catalog'))
 ]
