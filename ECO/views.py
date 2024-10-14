@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from goods.models import Categories
+from Ecosist.goods.models import Categories
 
 # Create your views here.o0
 def index(request):

@@ -32,12 +32,14 @@ class Products(models.Model):
         return f'{self.name} Количество - {self.quantity}'
 
 
+    # Метод который формирует id из 5 символов
+
     def display_id(self):
         return f'{self.id:05}'
 
-
+    # Метод проверяющий есть ли скидка и возвращает нужную стоимость
     def sell_price(self):
         if self.discount:
-            return round(self.price - self.price*self.discount/100, 2)
+            return round(self.price - self.price*self.discount/100, 0)
 
         return self.price

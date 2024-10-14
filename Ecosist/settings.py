@@ -11,7 +11,8 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
-
+import sys
+from django.conf.global_settings import STATICFILES_DIRS
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -25,7 +26,7 @@ SECRET_KEY = 'django-insecure-qg@rz+l%)7gph%$7^e6w*f&yk$_wowc8_#z#xh5s7!a1z%chhi
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -43,6 +44,8 @@ INSTALLED_APPS = [
     'Ecosist',
     'ECO',
     'goods',
+    'users',
+    'carts',
 
 ]
 
@@ -63,7 +66,7 @@ ROOT_URLCONF = 'Ecosist.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR/ 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -86,6 +89,10 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
+        'USER': 'Ecosist',
+        'PASSWORD': 'admin',
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
 
@@ -129,7 +136,9 @@ STATIC_URL = 'static/'
 STATICFILES_DIRS = [
     BASE_DIR/'static'
     ]
+MEDIA_URL = 'media/'
 
+MEDIA_ROOT = BASE_DIR/'media'
 
 INTERNAL_IPS = [
     # ...
@@ -137,7 +146,24 @@ INTERNAL_IPS = [
     # ...
 ]
 
+
+
 # Default primary key field type
 # https://docs.django project.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+AUTH_USER_MODEL = 'users.User'
+
+
+
+LOGIN_URL = '/user/login/'
+
+
+DEFAULT_CHARSET = 'utf-8'
+FILE_CHARSET = 'utf-8'
+
+if sys.version_info[0] == 3:
+    import io
+    sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
+    sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding='utf-8')

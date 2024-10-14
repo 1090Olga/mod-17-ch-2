@@ -67,8 +67,8 @@
                             </ul>
                         </li>
                     </ul>
-                    <form class="d-flex" role="search">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <form class="d-flex" role="search" action="{% url 'catalog:search' %}" method='get'>
+                        <input class="form-control me-2" type="search" name="q" placeholder="Search" aria-label="Search">
                         <button class="btn btn-outline-success text-white" type="submit">Поиск</button>
                     </form>
                 </div>
@@ -88,10 +88,10 @@
                             height="16">
                     </button>
                     <ul class="dropdown-menu bg-dark" data-bs-theme="dark">
+                        {% for category as categories %}
                         {% for category in categories %}
-                            <li><a class="dropdown-item text-white" href="{% url 'catalog:index' %}">{{ category.name }}</a></li>
+                            <li><a class="dropdown-item text-white" href="{% url 'catalog:index' category.slug %}">{{ category.name }}</a></li>
                         {% endfor %}
-
 
                     </ul>
                 </div>
