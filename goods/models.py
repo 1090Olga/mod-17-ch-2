@@ -1,8 +1,8 @@
 from django.db import models
 
 class Categories(models.Model):
-    name = models.CharField(max_length=500, unique=True, verbose_name='Название')
-    slug = models.SlugField(max_length=1000, unique=True, blank=True,null=True, verbose_name='URL')
+    name = models.CharField(max_length=1000, unique=True, verbose_name='Название')
+    slug = models.SlugField(max_length=5000, unique=True, blank=True,null=True, verbose_name='URL')
 
     class Meta:
         db_table = 'category'
