@@ -66,7 +66,7 @@ ROOT_URLCONF = 'Ecosist.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR/ 'templates'],
+        'DIRS': [BASE_DIR / 'ECO/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
